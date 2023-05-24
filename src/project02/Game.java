@@ -1,8 +1,5 @@
 package project02;
 
-import project02.paragraphs.Fox;
-import project02.paragraphs.Paragraph;
-
 public class Game {
 
     public Paragraph CurrentParagraph;
@@ -16,9 +13,8 @@ public class Game {
     }
 
     public void startNewGame() {
-        CurrentParagraph = new Fox();
+        CurrentParagraph = ParagraphsData.getParagraphByName("Лисенок");
         System.out.println(CurrentParagraph);
-        CurrentParagraph.createOptions();
         sessionActive = true;
         Menu menu = new Menu();
         menu.startGameMenu(this);
@@ -54,7 +50,6 @@ public class Game {
 
     public void continueGame() {
         System.out.println(CurrentParagraph);
-        CurrentParagraph.createOptions();
         sessionActive = true;
         menu.startGameMenu(this);
     }
@@ -69,13 +64,11 @@ public class Game {
 
     public void chooseFisrtOption() {
         CurrentParagraph = CurrentParagraph.chooseFirstOption();
-        CurrentParagraph.createOptions();
         System.out.println(CurrentParagraph);
     }
 
     public void chooseSecondOption() {
         CurrentParagraph = CurrentParagraph.chooseSecondOption();
-        CurrentParagraph.createOptions();
         System.out.println(CurrentParagraph);
     }
 
